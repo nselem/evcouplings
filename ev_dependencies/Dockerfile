@@ -28,5 +28,5 @@ RUN wget http://bioinfadmin.cs.ucl.ac.uk/downloads/psipred/psipred.4.02.tar.gz -
 	cd src && make && make install 
 
 #RUN perl -p -i -e 's/\.bin/\/opt\/bin/'
-
-WORKDIR /home
+VOLUME /opt
+WORKDIR /opt
