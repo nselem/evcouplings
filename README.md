@@ -14,8 +14,8 @@ This repository contains three Docker containers for [EVcouplings](https://githu
 1. Evcouplings image is contained in nselem/evcouplings  
 `docker pull nselem/evcouplings`  
 
-2. Evcouplings databases image is contained in nselem/ev_databases  
-`docker pull nselem/ev_databases`  
+2. Evcouplings databases image is contained in nselem/ev_data
+`docker pull nselem/ev_data`  
 
 3. Evcouplings dependencies image is contained in nselem/ev_dependencies
 This image contains cns_solve software that is under license, you should not use it without cns permission. For this reason first you need to 
@@ -43,7 +43,7 @@ Right now Im passing databases as volume from my local computer:
 `docker run -it --rm --volumes-from ev_dependencies -v $(pwd)/Sequences:/home -v $(pwd)/databases:/groups/marks/databases:ro nselem/evcouplings /bin/bash  `   
 
 But I whish to use databases container. Maybe like this: create a volume with databases using docker image nselem/ev_databases:    
-`docker run -v /data --name ev_databases nselem/ev_databases  `  
+`docker run -v /data --name ev_databases nselem/ev_data  `  
 
 
 And finally my desire is to get to this:  
