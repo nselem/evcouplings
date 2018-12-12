@@ -32,7 +32,7 @@ Right now Im passing databases as volume from my local computer:
 `docker run -it --rm --volumes-from ev_dependencies -v $(pwd)/Sequences:/home -v $(pwd)/databases:/groups/marks/databases:ro nselem/evcouplings /bin/bash  `   
 
 But I whish to use databases container. Maybe like this: create a volume with databases using docker image nselem/ev_databases:    
-`docker run -v /groups/marks/databases --name ev_databases nselem/ev_databases  `  
+`docker run -v /data --name ev_databases nselem/ev_databases  `  
 
 
 And finally my desire is to get to this:  
