@@ -14,7 +14,7 @@ This repository contains three Docker containers for [EVcouplings](https://githu
 1. Evcouplings image is contained in nselem/evcouplings  
 `docker pull nselem/evcouplings`  
 
-2. Evcouplings databases image is contained in nselem/ev_databases
+2. Evcouplings databases image is contained in nselem/ev_databases  
 `docker pull nselem/ev_databases`  
 
 3. Evcouplings dependencies image is contained in nselem/ev_dependencies
