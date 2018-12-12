@@ -14,4 +14,4 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
 WORKDIR /home
-#CMD ["/bin/bash"]
+CMD ["evcouplings_runcfg"]
