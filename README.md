@@ -26,7 +26,7 @@ This image contains cns_solve software that is under license, you should not use
 - [Download your own copy of cns_solve](http://cns-online.org/cns_request/). The version you need it is cns_solve_1.21_all_intel-mac_linux-mp.tar.gz  
 
 -  Download ev_dependencies Dockerfile  
- `wget  https://raw.githubusercontent.com/nselem/evcouplings/master/ev_dependencies/Dockerfile >Dockerfile`
+ `wget  https://raw.githubusercontent.com/nselem/evcouplings/master/ev_dependencies/Dockerfile`     
  
 - Build ev_dependencies in your local machine.   
 `docker build -t ev_dependencies .`  
