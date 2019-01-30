@@ -33,18 +33,38 @@ This image contains cns_solve software that is under license, you should not use
 
 
 ## Runing EVcouplings docker images  
+0. Create a working directory, in this example I called my working directory Couplings. 
+`mkdir Couplings`   
+`cd Couplings`  
+`mkdir Sequences`  
+`mkdir databases`
+
 1. First create a volume with all the dependencies using docker image nselem/ev_dependencies:    
-`docker run -v /opt --name ev_dependencies ev_dependencies  `   
+`$ docker run -v /opt --name ev_dependencies ev_dependencies  `   
 
-2. Then I expose this volume to the docker image nselem/evcouplings:    
-`docker run -it --rm --volumes-from ev_dependencies -v nselem/evcouplings /bin/bash  `   
+2. Then expose this volume to the docker image nselem/evcouplings:    
+`$ docker run -it --rm --volumes-from ev_dependencies -v nselem/evcouplings /bin/bash  `   
 
-3. Right now Im passing databases as volume from my local computer:      
-`docker run -it --rm --volumes-from ev_dependencies -v $(pwd)/Sequences:/home -v $(pwd)/databases:/groups/marks/databases:ro nselem/evcouplings /bin/bash  `   
+3. To finally run evcoupling dockers, you need a confid file and the databases setup. Right now Im passing databases as volume from my local computer product of the first run of docker images, but I think nselem/ev_data would work.  
 
-4. But I whish to use databases container. Maybe like this: create a volume with databases using docker image nselem/ev_databases:    
+Run evcouplings docker image
+`$ docker run -it --rm --volumes-from ev_dependencies -v $(pwd)/Sequences:/home -v $(pwd)/databases:/groups/marks/databases:ro nselem/evcouplings /bin/bash  `   
+and then run evcouplings plataform inside the docker container typing the command `evcouplings_runcfg`  followed by the name of your configuration file. For example if your configuration file is HisA_config_monomer.txt then run:  
+`# evcouplings_runcfg HisA_config_monomer.txt`  
+
+-Configuration file  
+`Sequences`  must contain a `configuration file` according to the evcoupling [config files tutorial](https://github.com/debbiemarkslab/EVcouplings/blob/develop/notebooks/running_jobs.ipynb)    
+Configuration file example.  (pending)  
+
+-Databases  
+The directory `/groups/marks/databases` contains all databases downloaded inside the docker container. By now I downloaded them by runing:   
+`# evcouplings_dbupdate `  
+the first time I opened evcouplings container. After downloading store databases in your `databases` directory.   
+
+4. To do in the future  
+I whish to use databases container. Maybe like this: create a volume with databases using docker image nselem/ev_databases:    
 `docker run -v /data --name ev_databases nselem/ev_data  `  
 
 
-5. And finally my desire is to get to this:  
+And finally my desire is to get to this:  
 `docker run -it --rm --volumes-from ev_dependencies ev_databases -v $(pwd)/Sequences:/home nselem/evcouplings evcouplings_runcfg HisA_config_monomer.txt`  
