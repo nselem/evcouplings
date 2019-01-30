@@ -33,18 +33,18 @@ This image contains cns_solve software that is under license, you should not use
 
 
 ## Runing EVcouplings docker images  
-First create a volume with all the dependencies using docker image nselem/ev_dependencies:    
+1. First create a volume with all the dependencies using docker image nselem/ev_dependencies:    
 `docker run -v /opt --name ev_dependencies ev_dependencies  `   
 
-Then I expose this volume to the docker image nselem/evcouplings:    
+2. Then I expose this volume to the docker image nselem/evcouplings:    
 `docker run -it --rm --volumes-from ev_dependencies -v nselem/evcouplings /bin/bash  `   
 
-Right now Im passing databases as volume from my local computer:      
+3. Right now Im passing databases as volume from my local computer:      
 `docker run -it --rm --volumes-from ev_dependencies -v $(pwd)/Sequences:/home -v $(pwd)/databases:/groups/marks/databases:ro nselem/evcouplings /bin/bash  `   
 
-But I whish to use databases container. Maybe like this: create a volume with databases using docker image nselem/ev_databases:    
+4. But I whish to use databases container. Maybe like this: create a volume with databases using docker image nselem/ev_databases:    
 `docker run -v /data --name ev_databases nselem/ev_data  `  
 
 
-And finally my desire is to get to this:  
+5. And finally my desire is to get to this:  
 `docker run -it --rm --volumes-from ev_dependencies ev_databases -v $(pwd)/Sequences:/home nselem/evcouplings evcouplings_runcfg HisA_config_monomer.txt`  
