@@ -27,8 +27,7 @@ RUN wget http://bioinfadmin.cs.ucl.ac.uk/downloads/psipred/psipred.4.02.tar.gz -
 	tar zxf /opt/psipred.4.02.tar.gz -C /opt && cd /opt/psipred && \
 	cd src && make && make install 
 
-RUN wget XXXXrunpsipred_single /opt/psipred/runpsipred_single
-
+RUN wget https://raw.githubusercontent.com/nselem/evcouplings/master/ev_dependencies/runpsipred_single --directory-prefix=/opt/psipred/
 #RUN perl -p -i -e 's/\.bin/\/opt\/bin/'
 VOLUME /opt
 WORKDIR /opt
