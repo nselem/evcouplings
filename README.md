@@ -33,7 +33,7 @@ This image contains cns_solve software that is under license, you should not use
 
 
 ## Runing EVcouplings docker images  
-0. Create a working directory, in this example I called my working directory Couplings. 
+0. Create a working directory, in this example I called my working directory Couplings.  
 `mkdir Couplings`   
 `cd Couplings`  
 `mkdir Sequences`  
