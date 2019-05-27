@@ -43,9 +43,9 @@ This image contains cns_solve software that is under license, you should not use
 `$ docker run -v /opt --name ev_dependencies ev_dependencies  `   
 
 2. Then expose this volume to the docker image nselem/evcouplings:    
-`$ docker run -it --rm --volumes-from ev_dependencies -v nselem/evcouplings /bin/bash  `   
+`$ docker run -it --rm --volumes-from ev_dependencies nselem/evcouplings /bin/bash  `   
 
-3. To finally run evcoupling dockers, you need a confid file and the databases setup. Right now Im passing databases as volume from my local computer product of the first run of docker images, but I think nselem/ev_data would work.  
+3. To finally run evcoupling dockers, you need a config file and the databases setup. Right now Im passing databases as volume from my local computer product of the first run of docker images, but I think nselem/ev_data would work.  
 
 Run evcouplings docker image
 `$ docker run -it --rm --volumes-from ev_dependencies -v $(pwd)/Sequences:/home -v $(pwd)/databases:/groups/marks/databases:ro nselem/evcouplings /bin/bash  `   
